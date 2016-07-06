@@ -18,6 +18,7 @@
 -   [Generics](#generics)
 -   [Composition](#composition)
 -   [Inheritance](#inheritance)
+-   [Polymorphism](#polymorphism)
 -   [Looping constructs](#loopingconstructs)
 -   [Equality testing](#equalitytesting)
 -   [Garbage collection](#garbagecollection)
@@ -34,7 +35,8 @@
 ## Design Patterns
 -   [Builder](#builder)
 -   [Singleton](#singleton)
--   [Facade/Proxy](#facade/proxy)
+-   [Facade](#facade)
+-   [Proxy](#proxy)
 
 ## Big O Notation
 -   [Defensive coding](#defensivecoding)
@@ -68,21 +70,46 @@ Moving the implementation away from function. Example the work in assembling/bak
 ## <a name="abstractclass"></a> Abstract class
 Abstract class may not be completely implemented
 [tutorial](http://www.tutorialspoint.com/java/java_abstraction.htm)
-The class that extends the abstraction must return the implemented value (fully implement the methods)
+The class that extends the abstract class must fully implement the methods (adhere to the contract)
 
 ## <a name="interface"></a> Interface
 Description of the actions that an object can do (like buttons on a television set, or a light switch. You do not care how it happens, just that it happens)
-Can only contain method signatures and fields
-Cannot contain implementation of the methods
+    
+    interface Bicycle {
+    void changeCadence(int newValue);
+    void changeGear(int newValue);
+    void speedUp(int increment);
+    void applyBrake(int decrement);
+    }
+
+-	Can only contain method signatures and fields
+-	Cannot contain implementation of the methods
+-	Classes that use the interface use the keyword **implements**
+-	Generalized class meant to be a super class
+
+[java doc](https://docs.oracle.com/javase/tutorial/java/concepts/interface.html)
 
 ## <a name="anonymousclass"></a> Anonymous class
 A class defined and instantiated in a single expresstion using the **new** operator
+
+    HelloWorld frenchGreeting = new HelloWorld() {
+    	String name = "tout le monde";
+    	public void greet() {
+    		greetSomeone("tout le monde");
+		}
+		public void greetSomeone(String someone) {
+			name = someone;
+			System.out.println("Salut " + name);
+		}
+	};
+
+[java doc](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html)
 
 ## <a name="concreteclass"></a> Concrete class
 Fully implemented class
 
 ## <a name="superclass"></a> Super class
-the parent or top level class objects extend from
+the parent or top level class that objects and other classes extend from
 
 ## <a name="subclass"></a> Sub class
 - A child of the super class(extends super) inherits public and protected members of its parent regardless of the package it is in.
@@ -97,13 +124,16 @@ the parent or top level class objects extend from
 taken from [java doc](https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html)
 
 ## <a name="encapsulation"></a> Encapsulation
-Provides protection to data in a particular class, method, or variable
+-	Provides protection to data in a particular class, method, or variable
+-	Technique of making the fields in a class private and providing access to the fields via public methods
+-	If a field is declared private, it cannot be accessed by anyone outside of the class, thereby hiding the fields within the class.
 
 ## <a name="visibilitymodifiers"></a> Visibility modifiers
 -	**public** - anyone can access
 -	**protected** - its class and its children have access
 -	**private** - only this class has access
--	*Make global variables private*
+-	*Make global variables private* - Always use the most restrictive access within reason
+-	If you must have a public field, *use constants*
 
 ## <a name="statickeyword"></a> Static keyword
 Static Variables: Variables common to all objects, creates fields and methods that belong to the class rather than to an instance of the class. (Belong to the class instead of a specific instance, shared by all instances)
@@ -111,6 +141,7 @@ Static Method: Also do not belong to a specific instance, Access static fields
 
 ## <a name="autoboxing"></a> Autoboxing
 Automatic conversion between primitive types and their corresponding object wrapper classes (int to Integer; double to Double)
+[java doc](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
 
 ## <a name="enum"></a> Enum
 A special data type that enables for a variable to be a set of predefined constants. Such as weekdays or compass directions.
@@ -132,9 +163,13 @@ Exception: an event that occurs during the execution of a program that disrupts 
 ## <a name="generics"></a> Generics
 
 ## <a name="composition"></a> Composition
+(Has-a)
 
 ## <a name="inheritance"></a> Inheritance
-Sub classes that extend a super class and inherit all of the properties of the super(parent) class
+(Is-a)
+Sub classes that extend a super class and inherit all of the properties(fields and methods) of the super(parent) class
+
+## <a name="polymorphism"></a> Polymorphism
 
 ## <a name="loopingconstructs"></a> Looping constructs
 ???Iteration over data??
@@ -176,12 +211,18 @@ defn
 
 # <a name="designpatterns"></a> Design patterns
 
-## <a name="builder"></a> Builder
+### <a name="builder"></a> Builder
 Builds the object
 When you have 4 or more optional parameters
 
-## <a name="singleton"></a> Singleton
+### <a name="singleton"></a> Singleton
 Just one exists, checks to see if it exists, when you only want 1
+
+### <a name="facade"></a> Facade
+Masks the complexity of an entire subsystem which could be composed of many objects
+
+### <a name="proxy"></a> Proxy
+Holds a reference to a single object and proxies access to it
 
 # <a name="bigo"></a> Big O Notation
 
