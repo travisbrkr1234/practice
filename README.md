@@ -13,7 +13,6 @@
 -   [Visibility modifiers](#visibilitymodifiers)
 -   [Static keyword](#statickeyword)
 -   [Autoboxing](#autoboxing)
--   [Enum](#enum)
 -   [Exception/ErrorHandling](#exceptionhandling)
 -   [Generics](#generics)
 -   [Composition](#composition)
@@ -24,9 +23,13 @@
 -   [Garbage collection](#garbagecollection)
 -   [Lambda](#lambda)
 
+## Data Types
+-   [Primitives](#primitives)
+-   [Wrappers](#wrappers)
+-   [Enum](#enum)
+
 ## Data Structures
 -   [Collections API](#collectionsapi)
--   [Data structures](#datastructuresContainers)
 -   [Queue](#queue)
 -   [Stack](#stack)
 -   [ArrayList](#arraylist)
@@ -60,7 +63,7 @@
 ## Misc
 -	HTML
 -	CSS
--	Angular
+-	Javascript/Angular
 
 # Definitions/Explanations
 
@@ -143,16 +146,6 @@ Static Method: Also do not belong to a specific instance, Access static fields
 Automatic conversion between primitive types and their corresponding object wrapper classes (int to Integer; double to Double)
 [java doc](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
 
-## <a name="enum"></a> Enum
-A special data type that enables for a variable to be a set of predefined constants. Such as weekdays or compass directions.
-
-    public enum HealthStatus {
-    GOOD_HEALTH(1),
-    MEDIOCRE_HEALTH(2),
-    BAD_HEALTH(3),
-    PREGNANT(4); }
-[java doc](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
-
 ## <a name="exceptionhandling"></a> Exception/ErrorHandling
 Exception: an event that occurs during the execution of a program that disrupts the normal flow of instructions. You will want to handle exceptions to manage errors ** 
 
@@ -161,6 +154,14 @@ Exception: an event that occurs during the execution of a program that disrupts 
 [quiz](https://docs.oracle.com/javase/tutorial/essential/exceptions/QandE/questions.html)
 
 ## <a name="generics"></a> Generics
+
+-   Stronger type checks at compile time
+-   Data-type safety
+-   No need to cast
+
+    List<DataType> list = new ArrayList<>();
+    list.add("hello");
+    DataType d = list.get(0);
 
 ## <a name="composition"></a> Composition
 (Has-a)
@@ -186,58 +187,90 @@ Sub classes that extend a super class and inherit all of the properties(fields a
 				.compareTo(e2.getHireDate()))
              .forEach(e -> System.out.println(e.toString()));
 
-## <a name="datastructures"></a> Data structures
-### <a name="collectionsapi"></a> Collections api
+
+# Data Types
+
+|Type     | Contains                | Default     | Size    | Range                                       |
+|---------|-------------------------|-------------|---------|---------------------------------------------|
+| boolean | true or false           | false       | 1 bit   | NA                                          |
+| char    | Unicode character       | u0000       | 16 bits | \u0000 to \uFFFF                            |
+| byte    | Signed integer          | 0           | 8 bits  | -128 to 127                                 |
+| short   | Signed integer          | 0           | 16 bits | -32768 to 32767                             |
+| int     | Signed integer          | 0           | 32 bits | -2147483648 to 2147483647                   |
+| long    | Signed integer          | 0           | 64 bits | -9223372036854775808 to 9223372036854775807 |
+| float   | IEEE 754 floating point | 0.0         | 32 bits | 1.4E-45 to3.4028235E+38                     |
+| double  | IEEE 754 floating point | 0.0         | 64 bits | 4.9E-324 to 1.7976931348623157E+308         |
+
+## <a name="primitives"></a> Primitives
+
+
+
+## <a name="wrappers"></a> Wrappers
+
+## <a name="enum"></a> Enum
+A special data type that enables for a variable to be a set of predefined constants. Such as weekdays or compass directions.
+
+    public enum HealthStatus {
+    GOOD_HEALTH(1),
+    MEDIOCRE_HEALTH(2),
+    BAD_HEALTH(3),
+    PREGNANT(4); }
+[java doc](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)
+
+# Data Structures
+
+## <a name="collectionsapi"></a> Collections api
 A collection is an object that groups multiple elements into a single unit. Collections are used to store, retrieve, manipulate, and communicate aggregate data.
-### Data Structures vs. Containers
-### <a name="queue"></a> Queue
+
+## <a name="queue"></a> Queue
 defn
 
     example code
 
-### <a name="stack"></a> Stack
+## <a name="stack"></a> Stack
 defn
 
     example code
-### <a name="arraylist"></a> Array list
+## <a name="arraylist"></a> Array list
 defn
 
     example code
 
-### <a name="linkedlist"></a> Linked list
+## <a name="linkedlist"></a> Linked list
 defn
 
     example code
 
 # <a name="designpatterns"></a> Design patterns
 
-### <a name="builder"></a> Builder
+## <a name="builder"></a> Builder
 Builds the object
 When you have 4 or more optional parameters
 
-### <a name="singleton"></a> Singleton
+## <a name="singleton"></a> Singleton
 Just one exists, checks to see if it exists, when you only want 1
 
-### <a name="facade"></a> Facade
+## <a name="facade"></a> Facade
 Masks the complexity of an entire subsystem which could be composed of many objects
 
-### <a name="proxy"></a> Proxy
+## <a name="proxy"></a> Proxy
 Holds a reference to a single object and proxies access to it
 
 # <a name="bigo"></a> Big O Notation
+The runtime or efficienct of an algorithm
 
-### <a name="defensivecoding"></a> Defensive coding
+## <a name="defensivecoding"></a> Defensive coding
 
-### <a name="recursion"></a> Recursion
+## <a name="recursion"></a> Recursion
 
 # <a name="javascript"></a> Javascript
-###  <a name="javascriptoop"></a> JavascriptOOP model
+##  <a name="javascriptoop"></a> JavascriptOOP model
 
-### <a name="loopingconstructs"></a> Looping constructs
+## <a name="loopingconstructs"></a> Looping constructs
 
-### <a name="functions"></a> Functions
+## <a name="functions"></a> Functions
 
-### <a name="equalitytesting"></a> Equality testing (== vs ===)
+## <a name="equalitytesting"></a> Equality testing (== vs ===)
 
 # <a name="sql"></a> SQL
 
