@@ -1,7 +1,7 @@
 # Java
 ###  Core concepts, definitions, and short examples
 
-## General
+## General (re-organize this section)
 -   [Abstraction](#abstraction)
 -   [Abstract class](#abstractclass)
 -   [Interface](#interface)
@@ -25,7 +25,8 @@
 
 ## Data Types
 -   [Primitives](#primitives)
--   [Wrappers](#wrappers)
+-   [Nonprimitive](#nonprimitive)
+-   [Data Type Table](#datatypetable)
 -   [Enum](#enum)
 
 ## Data Structures
@@ -34,6 +35,8 @@
 -   [Stack](#stack)
 -   [ArrayList](#arraylist)
 -   [LinkedList](#linkedlist)
+-   [SinglyLinked](#singlylinked)
+-   [Set](#set)
 
 ## Design Patterns
 -   [Builder](#builder)
@@ -71,7 +74,9 @@
 Moving the implementation away from function. Example the work in assembling/baking a pizza vs ordering a pizza at a restaurant
 
 ## <a name="abstractclass"></a> Abstract class
-Abstract class may not be completely implemented
+-   Abstract class may not be completely implemented
+-   Cannot be instantiated
+
 [tutorial](http://www.tutorialspoint.com/java/java_abstraction.htm)
 The class that extends the abstract class must fully implement the methods (adhere to the contract)
 
@@ -109,10 +114,14 @@ A class defined and instantiated in a single expresstion using the **new** opera
 [java doc](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html)
 
 ## <a name="concreteclass"></a> Concrete class
-Fully implemented class
+-   Fully implemented class(fields and methods)
+-   Opposite of an abstract class
+-   Does not contain abstract methods
+-   Can be instantiated
 
 ## <a name="superclass"></a> Super class
-the parent or top level class that objects and other classes extend from
+The parent or top level class that objects and other classes extend from
+-   Other classes inherit methods/fields from this class
 
 ## <a name="subclass"></a> Sub class
 - A child of the super class(extends super) inherits public and protected members of its parent regardless of the package it is in.
@@ -146,6 +155,8 @@ Static Method: Also do not belong to a specific instance, Access static fields
 Automatic conversion between primitive types and their corresponding object wrapper classes (int to Integer; double to Double)
 [java doc](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
 
+[**reference** Data Type Table](#datatypetable)
+
 ## <a name="exceptionhandling"></a> Exception/ErrorHandling
 Exception: an event that occurs during the execution of a program that disrupts the normal flow of instructions. You will want to handle exceptions to manage errors ** 
 
@@ -154,23 +165,24 @@ Exception: an event that occurs during the execution of a program that disrupts 
 [quiz](https://docs.oracle.com/javase/tutorial/essential/exceptions/QandE/questions.html)
 
 ## <a name="generics"></a> Generics
+    List<DataType> list = new ArrayList<>();
+    list.add("hello");
+    DataType d = list.get(0);
 
 -   Stronger type checks at compile time
 -   Data-type safety
 -   No need to cast
 
-    List<DataType> list = new ArrayList<>();
-    list.add("hello");
-    DataType d = list.get(0);
+## <a name="composition"></a> Composition (Has-a)
+<font size="3" color="red">**REDO**</font>
+-   Contains references to other classes
+-   Refers to other class objects as members of the current class
 
-## <a name="composition"></a> Composition
-(Has-a)
-
-## <a name="inheritance"></a> Inheritance
-(Is-a)
+## <a name="inheritance"></a> Inheritance (Is-a)
 Sub classes that extend a super class and inherit all of the properties(fields and methods) of the super(parent) class
 
 ## <a name="polymorphism"></a> Polymorphism
+-   r
 
 ## <a name="loopingconstructs"></a> Looping constructs
 ???Iteration over data??
@@ -190,22 +202,21 @@ Sub classes that extend a super class and inherit all of the properties(fields a
 
 # Data Types
 
-|Type     | Contains                | Default     | Size    | Range                                       |
-|---------|-------------------------|-------------|---------|---------------------------------------------|
-| boolean | true or false           | false       | 1 bit   | NA                                          |
-| char    | Unicode character       | u0000       | 16 bits | \u0000 to \uFFFF                            |
-| byte    | Signed integer          | 0           | 8 bits  | -128 to 127                                 |
-| short   | Signed integer          | 0           | 16 bits | -32768 to 32767                             |
-| int     | Signed integer          | 0           | 32 bits | -2147483648 to 2147483647                   |
-| long    | Signed integer          | 0           | 64 bits | -9223372036854775808 to 9223372036854775807 |
-| float   | IEEE 754 floating point | 0.0         | 32 bits | 1.4E-45 to3.4028235E+38                     |
-| double  | IEEE 754 floating point | 0.0         | 64 bits | 4.9E-324 to 1.7976931348623157E+308         |
-
 ## <a name="primitives"></a> Primitives
+## <a name="nonprimitive"></a> Nonprimitive
+A.K.A Objects, reference variables, object references, wrappers
+## <a name="datatypetable"></a> Data Type Table
 
-
-
-## <a name="wrappers"></a> Wrappers
+| Type    |  Contains                | Default     | Size   | Range                                               | Wrapper Class |
+|:-------:|:-----------------------:|:-----------:|:-------:|:---------------------------------------------------:|:-------------:|
+| boolean | true or false           | false       | 1 bit   | NA                                                  | Boolean       |
+| char    | Unicode character       | u0000       | 16 bits | \u0000 to \uFFFF                                    | Character     |
+| byte    | Signed integer          | 0           | 8 bits  | -128 to 127                                         | Byte          |
+| short   | Signed integer          | 0           | 16 bits | -32768 to 32767                                     | Short         |
+| int     | Signed integer          | 0           | 32 bits | -2147483648 to 2147483647                           | Integer       |
+| long    | Signed integer          | 0           | 64 bits | -9223372036854775808 to 9223372036854775807         | Long          |
+| float   | IEEE 754 floating point | 0.0         | 32 bits | &plusmn;1.4E-45 to &plusmn;3.4028235E+38            | Float         |
+| double  | IEEE 754 floating point | 0.0         | 64 bits | &plusmn;4.9E-324 to &plusmn;1.7976931348623157E+308 | Double        |
 
 ## <a name="enum"></a> Enum
 A special data type that enables for a variable to be a set of predefined constants. Such as weekdays or compass directions.
@@ -223,23 +234,29 @@ A special data type that enables for a variable to be a set of predefined consta
 A collection is an object that groups multiple elements into a single unit. Collections are used to store, retrieve, manipulate, and communicate aggregate data.
 
 ## <a name="queue"></a> Queue
-defn
-
     example code
+
+-   Collection for holding elements prior to processing
+-   First in First Out (FIFO)
+
 
 ## <a name="stack"></a> Stack
-defn
-
     example code
+    
+-   Collection for holding elements prior to processing
+-   Last in First Out (LIFO)
+
 ## <a name="arraylist"></a> Array list
 defn
-
-    example code
 
 ## <a name="linkedlist"></a> Linked list
 defn
 
-    example code
+## <a name="singlylinked"></a> Singly linked
+defn
+
+## <a name="set"></a> Set
+defn
 
 # <a name="designpatterns"></a> Design patterns
 
