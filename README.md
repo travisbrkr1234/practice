@@ -1,5 +1,6 @@
 # Java
 ###  Core concepts, definitions, and short examples
+**Disclaimer**: Some of these definitions are from oracle, and some are my own definitions to grasp the concept a little better. Use the following only as reference to supplement.
 
 ## General (re-organize this section)
 -   [Abstraction](#abstraction)
@@ -18,9 +19,12 @@
 -   [Composition](#composition)
 -   [Inheritance](#inheritance)
 -   [Polymorphism](#polymorphism)
+-   [@Override](#override)
 -   [Looping constructs](#loopingconstructs)
 -   [Equality testing](#equalitytesting)
 -   [Garbage collection](#garbagecollection)
+-   [Comparable](#comparable)
+-   [Comparator](#comparator)
 -   [Lambda](#lambda)
 
 ## Data Types
@@ -67,6 +71,16 @@
 -	HTML
 -	CSS
 -	Javascript/Angular
+binary tree
+graph
+unicode
+how memory works
+touring machine
+how a webpage is generated
+garbage collection
+
+## Git
+-   [Commands](#gitcommands)
 
 # Definitions/Explanations
 
@@ -175,14 +189,28 @@ Exception: an event that occurs during the execution of a program that disrupts 
 
 ## <a name="composition"></a> Composition (Has-a)
 <font size="3" color="red">**REDO**</font>
+-   Used when describing "what action the object does"
 -   Contains references to other classes
 -   Refers to other class objects as members of the current class
 
 ## <a name="inheritance"></a> Inheritance (Is-a)
-Sub classes that extend a super class and inherit all of the properties(fields and methods) of the super(parent) class
+-   Used when describing "what the object is"
+-   Sub classes that extend a super class and inherit all of the properties(fields and methods) of the super(parent) class
 
 ## <a name="polymorphism"></a> Polymorphism
--   r
+-   Ability to process objects of many different types through a single uniform interface
+-   Sub classes can define their own unique behaviors and share some of the same functionality of the parent class
+-   Cannot override method marked *final*
+-   See virtual method invocation
+
+[java doc](https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html)
+
+## <a name="override"></a> Overriding/@Override(annotation)
+
+-   Overriding a method allows the subclass to re-define a super class method
+-   Instance method in a subclass with the same signature name
+-   Same name, number and type of parameters and return type as the method that it overrides.
+-@Override 
 
 ## <a name="loopingconstructs"></a> Looping constructs
 ???Iteration over data??
@@ -192,12 +220,17 @@ Sub classes that extend a super class and inherit all of the properties(fields a
 
 ## <a name="garbagecollection"></a> Garbage collection
 
-## <a name="lambda"></a> Lambda
+## <a name="comparable"></a> Comparable
+
+## <a name="comparator"></a> Comparator
     employees
              .stream()
              .sorted((e1, e2) -> e1.getHireDate()
-				.compareTo(e2.getHireDate()))
+                .compareTo(e2.getHireDate()))
              .forEach(e -> System.out.println(e.toString()));
+
+## <a name="lambda"></a> Lambda
+
 
 
 # Data Types
@@ -207,7 +240,7 @@ Sub classes that extend a super class and inherit all of the properties(fields a
 A.K.A Objects, reference variables, object references, wrappers
 ## <a name="datatypetable"></a> Data Type Table
 
-| Type    |  Contains                | Default     | Size   | Range                                               | Wrapper Class |
+| Type    |  Contains                | Default    | Size    | Range                                               | Wrapper Class |
 |:-------:|:-----------------------:|:-----------:|:-------:|:---------------------------------------------------:|:-------------:|
 | boolean | true or false           | false       | 1 bit   | NA                                                  | Boolean       |
 | char    | Unicode character       | u0000       | 16 bits | \u0000 to \uFFFF                                    | Character     |
@@ -296,6 +329,20 @@ The runtime or efficienct of an algorithm
 ## <a name="indexes"></a> Indexes
 
 ## <a name="sqlinjection"></a> Sql injection
+
+# Git
+## <a name="gitcommands"></a> Git commands
+
+| Command          |  Does                                             |
+|:----------------:|:-------------------------------------------------:|
+| git init         | initailizes as a repo                             |
+| git pull         | pulls remote branch code into local repo          |
+| git status       | working status of files in repo                   |
+| git add          | add file or all. to staging area for commit       |
+| git commit -m "" | commits added/changed files with a commit message |
+| git push         | pushes commited changes to remote branch          |
+| git reflog       | shows log of file changes                         |
+
 
 
 
